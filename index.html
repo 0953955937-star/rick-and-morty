@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rick & Morty Universe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-glow"></div>
+    <div class="header-inner">
+      <div class="logo-block">
+        <span class="logo-portal"></span>
+        <div>
+          <h1 class="logo-title">Rick &amp; Morty</h1>
+          <p class="logo-sub">Universe Explorer</p>
+        </div>
+      </div>
+
+      <!-- STATS BAR -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-value" id="stat-total">--</span>
+          <span class="stat-label">Total</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value alive" id="stat-alive">--</span>
+          <span class="stat-label">Vivos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value dead" id="stat-dead">--</span>
+          <span class="stat-label">Muertos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="stat-pages">--</span>
+          <span class="stat-label">Paginas</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="site-main">
+
+    <!-- CONTROLES -->
+    <section class="controls" aria-label="Filtros y busqueda">
+      <div class="search-wrap">
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="Buscar personaje..."
+          autocomplete="off"
+        />
+        <span class="search-icon">&#9906;</span>
+      </div>
+
+      <nav class="filter-group" aria-label="Filtro por estado">
+        <button class="filter-btn active" data-filter="status" data-value="">Todos</button>
+        <button class="filter-btn alive" data-filter="status" data-value="alive">Vivo</button>
+        <button class="filter-btn dead" data-filter="status" data-value="dead">Muerto</button>
+        <button class="filter-btn unknown" data-filter="status" data-value="unknown">Desconocido</button>
+      </nav>
+
+      <nav class="filter-group" aria-label="Filtro por genero">
+        <button class="filter-btn active" data-filter="gender" data-value="">Genero</button>
+        <button class="filter-btn" data-filter="gender" data-value="male">Masculino</button>
+        <button class="filter-btn" data-filter="gender" data-value="female">Femenino</button>
+        <button class="filter-btn" data-filter="gender" data-value="genderless">Sin genero</button>
+      </nav>
+    </section>
+
+    <!-- LOADER -->
+    <div id="loader" class="loader" aria-live="polite">
+      <div class="portal-spinner"></div>
+      <p class="loader-text">Abriendo portal dimensional...</p>
+    </div>
+
+    <!-- MENSAJE DE ERROR -->
+    <div id="error-msg" class="error-msg hidden" aria-live="assertive">
+      <p id="error-text">Error al conectar con la dimension.</p>
+      <button id="retry-btn" class="retry-btn">Reintentar</button>
+    </div>
+
+    <!-- GRID DE TARJETAS -->
+    <section id="cards-grid" class="cards-grid" aria-label="Personajes"></section>
+
+    <!-- PAGINACION -->
+    <nav class="pagination" aria-label="Paginacion">
+      <button id="btn-prev" class="page-btn" disabled>Anterior</button>
+      <span id="page-info" class="page-info">Pagina 1</span>
+      <button id="btn-next" class="page-btn">Siguiente</button>
+    </nav>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>Datos obtenidos desde <a href="https://rickandmortyapi.com/" target="_blank" rel="noopener">rickandmortyapi.com</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
